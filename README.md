@@ -1,7 +1,13 @@
 # kafka-samples
 Apache Kafka samples 
- 
-##Start
+1. [ Start. ](#start)
+2. [ Topic. ](#topic)
+3. [ Producer. ](#producer)
+4. [ Consumer. ](#consumer)
+5. [ Offsets. ](#offsets)
+
+<a name="start"></a>
+## Start
 Start Zookeeper:  
 ```cmd
 c:\kafka_2.12-2.4.0>zookeeper-server-start.bat ./config/zookeeper.properties
@@ -11,7 +17,8 @@ Start Kafka broker:
 c:\kafka_2.12-2.4.0>kafka-server-start.bat ./config/server.properties
 ```
 
-##Topic
+<a name="topic"></a>
+## Topic
 ```cmd
 kafka-topics --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1
 ```
@@ -40,7 +47,8 @@ Output:
 first_topic  
 second_topic - marked for deletion  
 
-##Producer
+<a name="producer"></a>
+## Producer
 ```cmd
 kafka-console-producer --version
 ```
@@ -50,7 +58,8 @@ Output:
 kafka-console-producer --broker-list 127.0.0.1:9092 --topic first_topic
 ```
 
-##Consumer
+<a name="consumer"></a>
+## Consumer
 ```cmd
 kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic
 ```
@@ -74,7 +83,8 @@ Consumer group 'my-first-application' has no active members.
 |my-first-application |first_topic     |1          |5               |5               |0               |-               |-               |-  |
 |my-first-application |first_topic     |2          |3               |3               |0               |-               |-               |-  |
 
-##Offsets
+<a name="offsets"></a>
+## Offsets
 ```cmd
 kafka-consumer-groups --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --shift-by -2 --execute --topic first_topic
 ```
