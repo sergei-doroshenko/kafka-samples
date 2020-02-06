@@ -1,4 +1,4 @@
-package org.sdoroshenko;
+package org.sdroshenko.producer;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

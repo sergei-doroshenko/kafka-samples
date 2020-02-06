@@ -1,4 +1,4 @@
-package org.sdroshenko;
+package org.sdoroshenko.consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,16 +7,17 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class ConsumerLauncher1 {
+public class ElasticSearchConsumerLauncher {
 
-    private static final Logger logger = LoggerFactory.getLogger(ConsumerLauncher1.class);
+    private static final Logger logger = LoggerFactory.getLogger(ElasticSearchConsumerLauncher.class);
 
     public static void main(String[] args) {
         String bootstrapServers = "127.0.0.1:9092";
-        String topic = "first_topic";
+        String groupId = "kafka-demo-elasticsearch";
+        String topic = "twitter_tweets";
         CountDownLatch latch = new CountDownLatch(1);
         Executor consumerExecutor = Executors.newSingleThreadExecutor();
-        Consumer1 consumer = new Consumer1(bootstrapServers, topic, latch);
+        ElasticSearchConsumer consumer = new ElasticSearchConsumer(bootstrapServers, groupId, topic, latch);
         consumerExecutor.execute(consumer);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

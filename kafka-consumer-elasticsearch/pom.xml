@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>kafka-producer-0</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>kafka-consumer-elasticsearch</artifactId>
 
     <dependencies>
         <dependency>
@@ -20,6 +19,10 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
         </dependency>
     </dependencies>
 </project>
