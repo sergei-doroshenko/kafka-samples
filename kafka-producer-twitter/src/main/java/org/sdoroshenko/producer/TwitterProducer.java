@@ -103,7 +103,7 @@ public class TwitterProducer implements Runnable {
                 String msg = msgQueue.poll(5, TimeUnit.MILLISECONDS);
                 if (msg != null) {
                     logger.info(msg);
-                    String key = "id_" + 10;
+                    String key = "id_" + 10; // can be omitted
                     ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, msg);
                     producer.send(record, (metadata, e) -> {
                         if (e != null) {

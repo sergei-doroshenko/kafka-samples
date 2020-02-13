@@ -16,7 +16,11 @@ Start Kafka broker:
 ```cmd
 c:\kafka_2.12-2.4.0>kafka-server-start.bat ./config/server.properties
 ```
-
+On Mac OS:  
+```bash
+brew install kafka 
+zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties
+```
 <a name="topic"></a>
 ## Topic
 ```cmd
